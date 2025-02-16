@@ -1,9 +1,9 @@
 # client/Dockerfile (actualizado)
 FROM node:18-alpine AS builder
 WORKDIR /app
-COPY client/package*.json ./
+COPY package*.json ./
 RUN npm install
-COPY client/ .
+COPY . .
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 RUN npm run build
