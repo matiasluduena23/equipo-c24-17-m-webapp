@@ -1,0 +1,21 @@
+{
+	"builds": [
+		{
+			"name": "backend",
+			"rootDir": "server",
+			"variables": {
+				"ASPNETCORE_ENVIRONMENT": "Production",
+				"PORT": "8080"
+			}
+		},
+		{
+			"name": "frontend",
+			"rootDir": "client",
+			"variables": {
+				"NODE_ENV": "production",
+				"PORT": "3000",
+				"NEXT_PUBLIC_API_URL": "https://backend-service.up.railway.app"
+			}
+		}
+	]
+}
