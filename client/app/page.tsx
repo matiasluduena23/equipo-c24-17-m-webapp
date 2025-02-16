@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-type Wheater = {
+export type Wheater = {
 	date: Date;
 	temperatureC: number;
 	summary: string;
@@ -8,17 +8,17 @@ type Wheater = {
 };
 
 export default async function Home() {
-	const res = await fetch("http://localhost:5014/weatherforecast");
-	const data = (await res.json()) as Wheater[];
+	// const data = await getWeather();
 	return (
 		<main className="flex flex-col gap-8 row-start-2 items-center mt-20">
 			<h1 className="text-3xl">No Country Proyecto</h1>
-			<ul>
+
+			{/* <ul>
 				{data.map((item, index) => (
 					<li key={index}>{item.summary}</li>
 				))}
-			</ul>
-			<Button>Iniciar Sesion</Button>
+			</ul> */}
+			<Button>Test conexion</Button>
 		</main>
 	);
 }
