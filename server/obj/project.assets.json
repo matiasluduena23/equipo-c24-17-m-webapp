@@ -80,11 +80,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matia\\OneDrive\\Escritorio\\projects\\no-country\\server\\server.csproj",
+      "projectUniqueName": "C:\\Users\\matia\\OneDrive\\Escritorio\\projects\\railway\\equipo-c24-17-m-webapp\\server\\server.csproj",
       "projectName": "server",
-      "projectPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\projects\\no-country\\server\\server.csproj",
+      "projectPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\projects\\railway\\equipo-c24-17-m-webapp\\server\\server.csproj",
       "packagesPath": "C:\\Users\\matia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\projects\\no-country\\server\\obj\\",
+      "outputPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\projects\\railway\\equipo-c24-17-m-webapp\\server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matia\\AppData\\Roaming\\NuGet\\NuGet.Config"
