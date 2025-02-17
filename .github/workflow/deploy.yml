@@ -1,0 +1,21 @@
+name: Deploy to Railway
+
+on:
+  push:
+    paths:
+      - "server/**" # Trigger cuando cambien archivos en /server
+      - "client/**" # Trigger cuando cambien archivos en /client
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Trigger Railway Deployment
+        uses: railwayapp/action@v1
+        with:
+          service: ${{ contains(github.event.head_commit.modified, 'server/') && 'backend' || 'frontend' }}
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
