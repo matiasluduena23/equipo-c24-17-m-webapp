@@ -14,7 +14,11 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.WebHost.UseUrls("http://0.0.0.0:5000");
+// Configure Kestrel to listen on both IPv4 and IPv6
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5000); // Listens on both IPv4 (0.0.0.0) and IPv6 (::)
+});
 
 var app = builder.Build();
 
