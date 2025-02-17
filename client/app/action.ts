@@ -3,19 +3,20 @@
 import { Wheater } from "./page";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-console.log(API_URL);
+
 export async function getWeather() {
+	console.log("url:", API_URL);
 	try {
 		const res = await fetch(`${API_URL}weatherforecast`);
 		const data = (await res.json()) as Wheater[];
 
-		if (!data) {
-			return [];
+		if (!res.ok) {
+			throw new Error("Error buscando los datos");
 		}
 
 		return data;
 	} catch (error) {
-		console.log(error);
+		console.log("Error en el fetch", error);
 		throw new Error();
 	}
 }
