@@ -11,7 +11,7 @@ export default async function Home() {
 	// const data = await getWeather();
 	return (
 		<main className="flex flex-col gap-8 row-start-2 items-center mt-20">
-			<h1 className="text-3xl">No Country Proyecto</h1>
+			<h1 className="text-3xl">Nuevo titulo</h1>
 
 			{/* <ul>
 				{data.map((item, index) => (
