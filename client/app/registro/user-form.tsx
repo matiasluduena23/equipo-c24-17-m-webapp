@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { userFormDefault } from "@/lib/defaulvalues";
+import { registroUsuarioAction } from "./action";
 
 export default function UserForm() {
 	// 1. Definimos el formulario
@@ -23,11 +24,30 @@ export default function UserForm() {
 	});
 
 	// 2. Definimos un onSubmit handler.
-	function onSubmit(values: z.infer<typeof registroSchema>) {
+	async function onSubmit(values: z.infer<typeof registroSchema>) {
 		// ✅ Datos validados
-		console.log(values);
+		// console.log(values);
 
+		values.apellido = "";
 		//server
+		const [data, err] = await registroUsuarioAction(values);
+
+		if (err) {
+			if (err.fieldErrors) {
+				//Error en los campos - error esperado
+				Object.entries(err.fieldErrors).forEach(([field, mensaje]) =>
+					form.setError(
+						field as "nombre" | "apellido" | "email" | `root.${string}`,
+						{ message: mensaje[0] }
+					)
+				);
+			} else {
+				//Error en el server - error inesperado
+			}
+			return;
+		}
+
+		console.log(data);
 	}
 
 	return (
@@ -73,7 +93,7 @@ export default function UserForm() {
 					name="email"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Nombre</FormLabel>
+							<FormLabel>Correo</FormLabel>
 							<FormControl>
 								<Input placeholder="jperez@gmail.com" {...field} />
 							</FormControl>
